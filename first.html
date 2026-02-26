@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The 16 Wise Men: Ajita</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            background-color: #000;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+        }
+
+        /* The Deep Space Background */
+        #loka-space {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(circle, #0a0a2a 0%, #000 80%);
+        }
+
+        /* The Globe (Loka) */
+        #the-globe {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: url('https://upload.wikimedia.org/wikipedia/commons/2/22/Earth_Western_Hemisphere_transparent_background.png') no-repeat center center;
+            background-size: cover;
+            filter: brightness(1.2) drop-shadow(0 0 20px rgba(0, 150, 255, 0.5));
+            transition: opacity 5s ease;
+        }
+
+        /* Avijja Layers */
+        .layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transition: opacity 4s ease, filter 4s ease;
+        }
+
+        #layer-1 { background-color: #000; z-index: 10; } /* Darkest */
+        #layer-2 { background-color: rgba(0,0,0,0.85); backdrop-filter: blur(15px); z-index: 9; }
+        #layer-3 { background-color: rgba(0,0,0,0.6); backdrop-filter: blur(8px); z-index: 8; }
+        #layer-4 { background-color: rgba(0,0,0,0.3); backdrop-filter: blur(3px); z-index: 7; }
+
+        /* UI Dialogue Box */
+        #ui-box {
+            position: absolute;
+            bottom: 50px;
+            width: 80%;
+            max-width: 600px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+            z-index: 20;
+        }
+
+        #display-text { font-size: 1.5rem; margin-bottom: 20px; min-height: 80px; }
+
+        button {
+            padding: 12px 30px;
+            font-size: 1rem;
+            background: transparent;
+            color: white;
+            border: 2px solid #fff;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        button:hover { background: #fff; color: #000; }
+        .hidden { opacity: 0; pointer-events: none; }
+    </style>
+</head>
+<body>
+
+    <div id="loka-space">
+        <div id="the-globe"></div>
+        
+        <div id="layer-1" class="layer"></div>
+        <div id="layer-2" class="layer"></div>
+        <div id="layer-3" class="layer"></div>
+        <div id="layer-4" class="layer"></div>
+
+        <div id="ui-box">
+            <div id="display-text">What covers the world?</div>
+            <button id="action-btn" onclick="processStep()">Think & Answer</button>
+        </div>
+    </div>
+
+    <script>
+        const flow = [
+            { q: "What covers the world?", a: "Ignorance", layer: "layer-1" },
+            { q: "What makes it dim and unclear?", a: "Carelessness", layer: "layer-2" },
+            { q: "What guards against the flow of suffering?", a: "Mindfulness", layer: "layer-3" },
+            { q: "What cuts and stops the flow completely?", a: "Wisdom", layer: "layer-4" }
+        ];
+
+        let currentStep = 0;
+        let isRevealing = false;
+
+        function processStep() {
+            if (isRevealing) return;
+            isRevealing = true;
+
+            const btn = document.getElementById("action-btn");
+            const text = document.getElementById("display-text");
+            const data = flow[currentStep];
+
+            // 1. Show Answer & Start Fading Layer
+            text.innerText = "Answer: " + data.a;
+            document.getElementById(data.layer).classList.add("hidden");
+            btn.style.display = "none";
+
+            // 2. Wait for Slow Fade, then move to next question
+            setTimeout(() => {
+                currentStep++;
+                if (currentStep < flow.length) {
+                    text.innerText = flow[currentStep].q;
+                    btn.innerText = "Think & Answer";
+                    btn.style.display = "inline-block";
+                    isRevealing = false;
+                } else {
+                    // Final State
+                    text.innerText = "The world is now clear and bright.";
+                    btn.innerText = "The Next Wise Young Man";
+                    btn.style.display = "inline-block";
+                    btn.onclick = () => alert("Proceeding to Tissa-metteyya...");
+                }
+            }, 4500); // 4.5 seconds for deep contemplation and visual change
+        }
+    </script>
+</body>
+</html>

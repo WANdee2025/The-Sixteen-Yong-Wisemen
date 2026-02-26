@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta title="Ariya Stages Simulator">
+    <style>
+        /* CSS: จัดหน้าจอให้ดูสงบและสะอาด 🌿 */
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #e3f2fd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            width: 450px;
+        }
+        h2 { color: #1565c0; text-align: center; }
+        .input-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; color: #555; }
+        select, button {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #bbdefb;
+            font-size: 1rem;
+        }
+        button {
+            background-color: #1e88e5;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 10px;
+        }
+        button:hover { background-color: #1565c0; }
+        #display-screen {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f1f8e9;
+            border-left: 5px solid #8bc34a;
+            border-radius: 5px;
+            min-height: 80px;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h2>🧘 Ariya Mind Logic</h2>
+    
+    <div class="input-group">
+        <label>1. Select Stage of Enlightenment:</label>
+        <select id="stageSelector">
+            <option value="Normal">Normal Human (Avijja)</option>
+            <option value="Sotapanna">1. The Stream Entrant</option>
+            <option value="Sakadagami">2. The Once Returner</option>
+            <option value="Anagami">3. The Non-Returner</option>
+            <option value="Arahant">4. The Arahant (Non-Goner)</option>
+        </select>
+    </div>
+
+    <div class="input-group">
+        <label>2. Input Phassa (Contact):</label>
+        <select id="phassaInput">
+            <option value="Extreme Praise">Extreme Praise (High Lust potential)</option>
+            <option value="Hard Blame">Hard Blame (High Anger potential)</option>
+        </select>
+    </div>
+
+    <button onclick="runSimulation()">Process Logic</button>
+
+    <div id="display-screen">
+        <i>System ready... Please select a stage and press Process.</i>
+    </div>
+</div>
+
+<script>
+    /* JavaScript Logic: พยัญชนะ และ อรรถะ ของอริยบุคคล 🧠 */
+
+    class BaseMind {
+        process(input) {
+            return `[Normal] Reaction triggered by ${input}. Defilements are fully active.`;
+        }
+    }
+
+    // 1. พระโสดาบัน (The Stream Entrant)
+    class Sotapanna extends BaseMind {
+        process(input) {
+            return `[Sotapanna] ${input} received. Self-identity bug (Sakkaya-ditthi) removed. Seeing data as not-self, but still feeling like 'me'.`;
+        }
+    }
+
+    // 2. พระสกทาคามี (The Once Returner) - เพิ่มเติมตามที่คุณทักท้วงครับ
+    class Sakadagami extends Sotapanna {
+        process(input) {
+            return `[Sakadagami] ${input} received. Lust and Anger are attenuated (thinned out). The response is much weaker and faster to settle.`;
+        }
+    }
+
+    // 3. พระอนาคามี (The Non-Returner)
+    class Anagami extends Sakadagami {
+        process(input) {
+            return `[Anagami] ${input} received. Sensory attachment and Anger triggers are permanently deleted. The mind remains in perfect equanimity.`;
+        }
+    }
+
+    // 4. พระอรหันต์ (The Arahant / Non-Goner)
+    class Arahant extends Anagami {
+        process(input) {
+            // Functional Data (Kiriyajitta) - No stitching (Sippini)
+            return `[Arahant] Pure observation of ${input}. All mental loops (Sankhara) are terminated. Final state: Nibbato (Cooling).`;
+        }
+    }
+
+    function runSimulation() {
+        const stage = document.getElementById('stageSelector').value;
+        const phassa = document.getElementById('phassaInput').value;
+        const screen = document.getElementById('display-screen');
+
+        let currentMind;
+        // Logic mapping stages to Classes
+        switch(stage) {
+            case "Sotapanna": currentMind = new Sotapanna(); break;
+            case "Sakadagami": currentMind = new Sakadagami(); break;
+            case "Anagami": currentMind = new Anagami(); break;
+            case "Arahant": currentMind = new Arahant(); break;
+            default: currentMind = new BaseMind();
+        }
+
+        screen.innerHTML = `<strong>Status:</strong> ${currentMind.process(phassa)}`;
+    }
+</script>
+
+</body>
+</html>
