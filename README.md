@@ -17,7 +17,7 @@ This project implements the core logic of each dialogue using web technologies.
 | :--- | :--- | :--- | :--- |
 | 1 | **Ajita** | Overcoming Ignorance & Fear | ✅ `first.html` |
 | 2 | **Tissa Metteyya** | The Two Extremes & The "Stitcher" (Tanha) | ✅ `second.html` |
-| 3 | Punnaka | The Cycle of Birth and Sacrifice | ⏳ third.html |
+| 3 | Punnaka | The Cycle of Birth and Sacrifice | ⏳ 'third.html' |
 | 4 | Mettagu | The Origin and Cessation of Pain | ⏳ In Progress |
 | 5 | **Dhotaka** | Liberation from Doubt | 📅 *Planned* |
 | 6 | **Upasiva** | Emptiness and Higher Consciousness | 📅 *Planned* |
