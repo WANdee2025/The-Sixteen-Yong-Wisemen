@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 3: Punnaka Manava - The Logic of Sacrifice</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background-color: #121212; color: #e0e0e0; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .container { background: #1e1e1e; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); width: 80%; max-width: 600px; text-align: center; border-top: 4px solid #f39c12; }
+        h1 { color: #f39c12; font-size: 1.8rem; margin-bottom: 20px; }
+        .btn-group { display: flex; gap: 10px; justify-content: center; margin-bottom: 30px; }
+        button { padding: 12px 20px; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; transition: 0.3s; }
+        .btn-material { background: #555; color: #fff; }
+        .btn-wisdom { background: #f39c12; color: #121212; }
+        button:hover { opacity: 0.8; transform: translateY(-2px); }
+        .display-panel { background: #252525; padding: 20px; border-radius: 10px; min-height: 60px; display: flex; align-items: center; justify-content: center; border: 1px solid #333; margin-bottom: 20px; }
+        .back-btn { background: transparent; color: #888; border: 1px solid #444; font-size: 0.9rem; }
+        .back-btn:hover { color: #fff; border-color: #fff; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>🧘 Punnaka's Dialogue: Beyond the Loop</h1>
+    <p>How do we cross the "Flood" (Ogha) of Birth and Aging?</p>
+    
+    <div class="btn-group">
+        <button class="btn-material" onclick="simulate('material')">Material Offerings</button>
+        <button class="btn-wisdom" onclick="simulate('wisdom')">Cultivate Wisdom</button>
+    </div>
+
+    <div id="display" class="display-panel">Status: Awaiting System Input...</div>
+
+    <button class="back-btn" onclick="window.location.href='index.html'">← Back to Hub</button>
+</div>
+
+<script>
+    function simulate(type) {
+        const display = document.getElementById('display');
+        if(type === 'material') {
+            display.innerHTML = "<span style='color: #ff6b6b;'>❌ Fail: Result-oriented attachment leads to more cycles (Samsara).</span>";
+        } else {
+            display.innerHTML = "<span style='color: #1dd1a1;'>✅ Success: Wisdom terminates the aging-loop (Jara). Beyond the Flood!</span>";
+        }
+    }
+</script>
+
+</body>
+</html>
