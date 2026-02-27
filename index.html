@@ -3,112 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Sixteen Dialogues (Solasa Panha) - Home</title>
+    <title>The Sixteen Sages - Digital Hub</title>
     <style>
-        /* CSS สำหรับความเรียบง่ายและทันสมัย */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            background-color: #f4f7f6;
-            color: #333;
-        }
-        header {
-            background: #1a2a6c;
-            color: #fff;
-            padding: 2rem 0;
-            text-align: center;
-        }
-        .container {
-            width: 85%;
-            margin: auto;
-            overflow: hidden;
-            padding: 2rem 0;
-        }
-        .intro {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-        /* ระบบ Grid สำหรับแสดงการ์ดมาณพ */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-        .card {
-            background: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-            text-decoration: none;
-            color: inherit;
-            display: block;
-            border-top: 5px solid #1a2a6c;
-        }
-        .card:hover {
-            transform: translateY(-10px);
-            background: #fdfdfd;
-        }
-        .card h3 {
-            margin-top: 0;
-            color: #1a2a6c;
-        }
-        .status-badge {
-            font-size: 0.8rem;
-            padding: 3px 8px;
-            border-radius: 5px;
-            background: #e0e0e0;
-        }
-        .status-ready { background: #d4edda; color: #155724; }
-        footer {
-            text-align: center;
-            padding: 2rem;
-            background: #333;
-            color: #fff;
-            margin-top: 2rem;
-        }
+        body { font-family: 'Segoe UI', sans-serif; background: #f0f2f5; color: #1a2a6c; text-align: center; padding: 50px; }
+        .hub-container { max-width: 800px; margin: auto; background: white; padding: 30px; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        h1 { border-bottom: 2px solid #1a2a6c; padding-bottom: 10px; }
+        .sage-list { list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .sage-item { padding: 15px; border: 1px solid #ddd; border-radius: 10px; text-decoration: none; color: #1a2a6c; transition: 0.3s; font-weight: bold; }
+        .sage-item:hover { background: #1a2a6c; color: white; }
+        .status-ready { border-left: 5px solid #28a745; }
+        .status-pending { border-left: 5px solid #ffc107; opacity: 0.6; pointer-events: none; }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>☸️ The Sixteen Dialogues</h1>
-        <p>Refactoring Ancient Wisdom into Modern Logic</p>
-    </header>
+<div class="hub-container">
+    <h1>☸️ The Sixteen Dialogues (Solasa Panha)</h1>
+    <p><i>Refactoring Ancient Wisdom through Programming Logic</i></p>
+    
+    <div class="sage-list">
+        <a href="first.html" class="sage-item status-ready">1. Ajita Manava (Ready)</a>
+        <a href="second.html" class="sage-item status-ready">2. Tissa Metteyya (Ready)</a>
+        <a href="third.html" class="sage-item status-ready">3. Punnaka Manava (Ready)</a>
+        <div class="sage-item status-pending">4. Mettagu (Coming Soon)</div>
+        </div>
 
-    <div class="container">
-        <section class="intro">
-            <h2>Welcome to Solasa Panha Digital Exploration</h2>
-            <p>Explore the profound questions asked by 16 youthful sages to the Buddha, <br>
-            deconstructed through the lens of Programming and Pali Grammar.</p>
-        </section>
-
-        <div class="grid">
-            <a href="first.html" class="card">
-                <span class="status-badge status-ready">✅ Ready</span>
-                <h3>1. Ajita Manava</h3>
-                <p>Decoding Fear, Ignorance, and the "Flood" of existence.</p>
-            </a>
-
-            <a href="second.html" class="card">
-                <span class="status-badge status-ready">✅ Ready</span>
-                <h3>2. Tissa Metteyya</h3>
-                <p>The Logic of Two Extremes and the "Stitcher" (Tanha).</p>
-            </a>
-
-            <div class="card" style="opacity: 0.6; border-top: 5px solid #ccc;">
-                <span class="status-badge">⏳ Coming Soon</span>
-                <h3>3. Punnaka Manava</h3>
-                <p>Logic of Birth and the cycle of Sacrifices.</p>
-            </div>
-            
-            </div>
-    </div>
-
-    <footer>
-        <p>Developed with Mindfulness | <a href="https://github.com/WANdee2025/The-Sixteen-Yong-Wisemen" style="color: #4db8ff;">View on GitHub</a></p>
-    </footer>
+    <hr>
+    <h3>✍️ Latest Blog Post</h3>
+    <p><b>Punnaka's Logic:</b> Why sacrifices fail to stop aging (Jara). <br>
+    <i>Understanding "Asasamana" (Hope-driven inputs) vs. Wisdom.</i></p>
+</div>
 
 </body>
 </html>
