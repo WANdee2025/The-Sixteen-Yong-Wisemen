@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4. Mettagu Manava Puccha</title>
+    <style>
+        /* Minimalist Dark Mode */
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        #progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 2px;
+            background-color: #ffffff;
+            width: 0%;
+            transition: width 0.4s cubic-bezier(0.1, 0.7, 1.0, 0.1);
+        }
+
+        #chat-box {
+            text-align: center;
+            max-width: 600px;
+            padding: 20px;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        #speaker-name {
+            font-size: 0.8rem;
+            color: #555;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            margin-bottom: 24px;
+        }
+
+        #dialogue-text {
+            font-size: 1.6rem;
+            line-height: 1.5;
+            font-weight: 300;
+            transition: opacity 0.5s ease;
+        }
+
+        .controls {
+            position: fixed;
+            bottom: 80px;
+            display: flex;
+            gap: 50px;
+            align-items: center;
+        }
+
+        button {
+            background: none;
+            border: none;
+            color: #ffffff;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0.3;
+            transition: opacity 0.3s ease;
+        }
+
+        button:hover {
+            opacity: 1;
+        }
+
+        .home-icon {
+            font-size: 1rem;
+        }
+
+        /* Hide Back button on first slide */
+        .hidden {
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="progress-bar"></div>
+
+    <main id="chat-box">
+        <div id="speaker-name"></div>
+        <div id="dialogue-text"></div>
+    </main>
+
+    <nav class="controls">
+        <button id="prev-btn" onclick="move(-1)">PREV</button>
+        <button class="home-icon" onclick="window.location.href='index.html'">HUB</button>
+        <button id="next-btn" onclick="move(1)">NEXT</button>
+    </nav>
+
+    <script>
+        const dialogues = [
+            { 
+                speaker: "Mettagu", 
+                text: "I ask The Blessed One: how does suffering arise in the world?" 
+            },
+            { 
+                speaker: "The Blessed One", 
+                text: "Mettagu, suffering arises from attachments. One who is ignorant creates these foundations for pain." 
+            },
+            { 
+                speaker: "Mettagu", 
+                text: "How does a wise person cross over the flood of birth and decay?" 
+            },
+            { 
+                speaker: "The Blessed One", 
+                text: "By understanding the Truth and being mindful, one can cross the boundaries of the world." 
+            },
+            { 
+                speaker: "The Blessed One", 
+                text: "Relinquish the past, the future, and the middle. Thus, you will find peace." 
+            }
+        ];
+
+        let current = 0;
+        const speakerEl = document.getElementById('speaker-name');
+        const textEl = document.getElementById('dialogue-text');
+        const progressEl = document.getElementById('progress-bar');
+        const prevBtn = document.getElementById('prev-btn');
+
+        function update() {
+            textEl.style.opacity = 0;
+            
+            setTimeout(() => {
+                const item = dialogues[current];
+                speakerEl.textContent = item.speaker;
+                textEl.textContent = item.text;
+                textEl.style.opacity = 1;
+
+                // Progress & Navigation
+                progressEl.style.width = ((current + 1) / dialogues.length * 100) + "%";
+                prevBtn.classList.toggle('hidden', current === 0);
+            }, 400);
+        }
+
+        function move(step) {
+            if (current + step >= 0 && current + step < dialogues.length) {
+                current += step;
+                update();
+            } else if (current + step >= dialogues.length) {
+                // Navigate to fifth.html
+                window.location.href = 'fifth.html';
+            }
+        }
+
+        // Initialize
+        update();
+    </script>
+</body>
+</html>
